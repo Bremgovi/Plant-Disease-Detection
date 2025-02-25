@@ -1,101 +1,53 @@
-import Image from "next/image";
+import TeachableMachine from "./components/Model";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const diseaseList = [
+  "Calabaza (Cenicilla)",
+  "Cerezo (Cenicilla)",
+  "Durazno (Mancha bacteriana)",
+  "Fresa (Chamuscado de hoja)",
+  "Maiz (Cercospora)",
+  "Maiz (Roya común)",
+  "Maiz (Plaga del tizon)",
+  "Manzana (Sarna del manzano)",
+  "Manzana (Pobredumbre negra)",
+  "Manzana (Roya del cedro)",
+  "Papa (Tizón temprano)",
+  "Papa (Tizón tardío)",
+  "Tomate (Mancha bacteriana)",
+  "Tomate (Moho)",
+  "Tomate (Virus del mosaico)",
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-cover bg-center" style={{ backgroundImage: "url('/wp.gif')" }}>
+      <div className="flex justify-center items-center h-screen w-full bg-gray-900 bg-opacity-75">
+        <div className="flex flex-col items-center w-3/4">
+          <h1 className={`text-8xl text-gray-200 font-extrabold mb-4 text-start ml-5 mt-10 tracking-wide ${inter.variable}`}>Detección de enfermedades de plantas</h1>
+          <div className="w-3/4 flex justify-between">
+            <img src="/dancingPlants.gif" alt="" className="w-1/3 h-1/2 object-contain" />
+            <div className="relative w-1/3 mt-[-50px]">
+              <img src="/plant.gif" alt="Plant Disease Detection" className="w-full h-auto mb-10 relative z-10" />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/5 bg-slate-900 rounded-full opacity-50 z-0"></div>
+            </div>
+            <img src="/dancingPlants.gif" alt="" className="w-1/3 h-1/2 object-contain" />
+          </div>
+          <div className="bg-gray-400 bg-opacity-50 p-4 rounded-lg shadow-lg w-5/6">
+            <p className="text-lg mb-2 text-center font-extrabold">Lista de enfermedades:</p>
+            <p className="text-base text-center font-bold text-gray-300">{diseaseList.join(", ")}</p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="flex items-center justify-center h-full w-1/4 bg-gray-900 bg-opacity-80 p-4">
+          <TeachableMachine />
+        </div>
+      </div>
     </div>
   );
 }
